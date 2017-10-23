@@ -23,18 +23,18 @@ body{
     color: #555;
   }
 
-  .page-header .student-search{
+  .page-header .search{
     float: right;
   }
 
-    .page-header .student-search input{
+    .page-header .search input{
       border-radius: 5px;
       border: 1px solid #eaeaea;
       padding: 8px 15px;
       font-size: 14px;
     }
 
-    .page-header .student-search button{
+    .page-header .search button{
       border-radius: 5px;
       border: 1px solid #eaeaea;
       padding: 8px 15px;
@@ -99,7 +99,7 @@ body{
   margin: 40px 0 0 0;
   text-align: center;
 }
- 
+
   .pagination li{
     display: inline;
   }
@@ -117,3 +117,22 @@ body{
       background-color: #4ba6c3;
       color: #fff;
     }
+
+    .page-header .search input {
+    border-radius: 5px;
+    border: 1px solid #eaeaea;
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+    input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    user-select: text;
+    cursor: auto;
+    border-radius: 5px;
+    border: 1px solid #eaeaea;
+    padding: 8px 15px;
+    font-size: 14px;
+  }

@@ -1,17 +1,18 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Students</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/design.css">
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Students</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/design.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   </head>
   <body>
     <div class="page">
       <div class="page-header cf">
         <h2>Students</h2>
-        <-- dynamically insert search form here (optional) -->
+        <div class="search"><input id="search" placeholder="recherche d'étudiant"><button>Search</button></div>
 
       </div>
       <ul class="student-list">
@@ -556,9 +557,10 @@
            </div>
         </li>
       </ul>
-      <-- dynamically add pagination links here -->
 
     </div>
+    <script src="js/index.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+
   </body>
 </html>
-
