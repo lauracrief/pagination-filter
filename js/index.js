@@ -53,5 +53,5 @@ function searchList() {
         if (filterStudents.length >= 10) {
           appendButtons(paginated_students);
         }
-        showPages(0, paginated_students);
+     
 }
