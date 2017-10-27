@@ -1,8 +1,9 @@
 
 var studentItems = $('.student-item');
 var studentSearch = $('.search');
-var pagination
+var pagination = '<div class="pagination"><ul></ul></div>';
 var studentList = pages(studentItems);
+var listOfStudents = $('.student-list');
 
 
 //10 results per page
@@ -15,7 +16,40 @@ function pages(list) {
 		studentPerPage.push(allList.splice(0,10));
 	}
 	return studentPerPage;
+
 }
+
+function pagination(listLength) {
+  var pagesNeeded = Math.ceil((listOfStudents/10));   //divide length of student list by 10 (round up to nearest interger)
+  return pagesNeeded;
+}
+
+
+function appendButtons(pageList) {
+	$('.page').append(pagination);
+	var numPages = pageList.length;
+	for (var i = 1; i <= numPages; i++) {
+		var buttons = '<li><a href="#">' + i + '</a></li>';
+		$('.pagination ul').append(buttons);
+	}
+	$('.pagination ul li a').first().addClass('active');
+
+
+	 $(".pagination ul li a").on("click", function(e) {
+	    var pageSelection = parseInt($(this)[0].text) - 1;
+	    showPages(pageSelection, pageList);
+	    $(".pagination ul li a").removeClass();
+	    $(this).addClass("active");
+
+	  });
+}
+
+
+
+
+
+
+
 //filtersearch student
 $('.page-header.cf').append(studentSearch);
 $('.search').find('button').on('click', searchList);
@@ -31,17 +65,47 @@ function showPages(pageNumber, pageList) {
         });
       }
   });
-}
-showPages(0, studentList);
 
+}
 
 function searchList() {
-    var searchTerm = $('#search').val();
+  var searchTerm = $('#search').val().toLowerCase().trim();;
+  var filteredStudents = studentItems.filter(function() {
+    var studentEmail = $(this).find('.email').text();
+    var studentNames = $(this).find('h3').text();
 
-        var filterStudents = studentItems.filter(function(i) {
-        	var studentEmail = $(this).find('.email').text();
-          var studentNames = $(this).find('h3').text();
+		if (searchTerm === 0) {
+			showPages(0, studentList);
+			appendButtons(studentList);
+		}
 
+<<<<<<< HEAD
+    if (studentNames.indexOf(searchTerm) > -1 || studentEmail.indexOf(searchTerm) > -1) {
+      return true;
+      }
+      return false;
+      }
+		);
+
+    if (filteredStudents.length === 0 ) {
+			var message = ("Not found!");
+			$(".student-list").hide();
+			$("#message").show();
+      $('.page-header h2').text('No Results');
+      }
+    var paginated_students = pages(filteredStudents);
+    $('.pagination').remove();
+		if (filteredStudents.length >= 10) {
+      appendButtons(paginated_students);
+    }
+    showPages(0, paginated_students);
+		return paginated_students;
+} // End: searchList
+
+
+showPages(0, studentList);
+appendButtons(studentList);
+=======
         });
         if (filterStudents.length === 0 ) {
         	$('.page-header h2').text('No Results');
@@ -55,3 +119,4 @@ function searchList() {
         }
      
 }
+>>>>>>> 2c9c60cacc6b33ff8a4e349e9e19e0f8dc2f89c9
