@@ -79,7 +79,6 @@ function searchList() {
 			appendButtons(studentList);
 		}
 
-<<<<<<< HEAD
     if (studentNames.indexOf(searchTerm) > -1 || studentEmail.indexOf(searchTerm) > -1) {
       return true;
       }
@@ -88,35 +87,20 @@ function searchList() {
 		);
 
     if (filteredStudents.length === 0 ) {
-			var message = ("Not found!");
-			$(".student-list").hide();
-			$("#message").show();
+			//var message = ("Not found!");
+			//$(".student-list").hide();
+			//$("message").show();
       $('.page-header h2').text('No Results');
-      }
+		}
     var paginated_students = pages(filteredStudents);
     $('.pagination').remove();
 		if (filteredStudents.length >= 10) {
       appendButtons(paginated_students);
     }
     showPages(0, paginated_students);
-		return paginated_students;
+			return paginated_students;
 } // End: searchList
 
 
 showPages(0, studentList);
 appendButtons(studentList);
-=======
-        });
-        if (filterStudents.length === 0 ) {
-        	$('.page-header h2').text('No Results');
-        } else {
-        	$('.page-header h2').text('STUDENTS');
-        }
-        var paginated_students = pages(filterStudents);
-        $('.pagination').remove();
-        if (filterStudents.length >= 10) {
-          appendButtons(paginated_students);
-        }
-     
-}
->>>>>>> 2c9c60cacc6b33ff8a4e349e9e19e0f8dc2f89c9
